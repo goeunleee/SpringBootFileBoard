@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.Date;
 @Getter
 @Setter
-public class BoardDTO {
+public class BoardDTO extends CommonDTO {
 
 	/** 번호 (PK) */
 	private Long idx;
@@ -31,18 +31,8 @@ public class BoardDTO {
 	/** 비밀 여부 */
 	private String secretYn;
 
-	/** 삭제 여부 */
-	private String deleteYn;
+ //commonDTO 상속받으므로 공통 멤버변수 삭제
 
-	/** 등록일 */
-	private Date insertTime;
-	
-
-	/** 수정일 */
-	private Date updateTime;
-
-	/** 삭제일 */
-	private Date deleteTime;
 
 	public Long getIdx() {
 		return idx;
@@ -100,40 +90,6 @@ public class BoardDTO {
 		this.secretYn = secretYn;
 	}
 
-	public String getDeleteYn() {
-		return deleteYn;
-	}
-
-	public void setDeleteYn(String deleteYn) {
-		this.deleteYn = deleteYn;
-	}
-
-	public Date getInsertTime() {
-		return insertTime;
-	}
-
-	public void setInsertTime(Date insertTime) {
-		this.insertTime = insertTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-
-	public Date getDeleteTime() {
-		return deleteTime;
-	}
-
-	public void setDeleteTime(Date deleteTime) {
-		this.deleteTime = deleteTime;
-	}
-
- 
-	
 	
 
 }

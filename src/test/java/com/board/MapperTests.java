@@ -94,9 +94,9 @@ class MapperTests {
 	
 	@Test
 	public void testSelectList() { //삭제되지 않은 게시물 조회 delete_yn = n인 것
-		int boardTotalCount = boardMapper.selectBoardTotalCount();
+		int boardTotalCount = boardMapper.selectBoardTotalCount(null);
 		if (boardTotalCount > 0) {
-			List<BoardDTO> boardList = boardMapper.selectBoardList();
+			List<BoardDTO> boardList = boardMapper.selectBoardList(null);
 			if (CollectionUtils.isEmpty(boardList) == false) {
 				for (BoardDTO board : boardList) {
 					System.out.println("============삭제 안 된 게시물 리스트=============");
