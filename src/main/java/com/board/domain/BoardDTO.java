@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 //import java.time.*;
 import java.util.Date;
+import java.util.List;
 @Getter
 @Setter
 public class BoardDTO extends CommonDTO {
@@ -30,6 +31,10 @@ public class BoardDTO extends CommonDTO {
 
 	/** 비밀 여부 */
 	private String secretYn;
+	/**파일 변경 여부**/
+	private String changeYnString;
+	/**파일 인덱스 리스트**/
+	private List<Long> fileIdxs;
 
  //commonDTO 상속받으므로 공통 멤버변수 삭제
 
@@ -88,6 +93,22 @@ public class BoardDTO extends CommonDTO {
 
 	public void setSecretYn(String secretYn) {
 		this.secretYn = secretYn;
+	}
+
+	public String getChangeYnString() {
+		return changeYnString;
+	}
+
+	public void setChangeYnString(String changeYnString) {
+		this.changeYnString = changeYnString;
+	}
+
+	public List<Long> getFileIdxs() {
+		return fileIdxs;
+	}
+
+	public void setFileIdxs(List<Long> fileIdxs) {
+		this.fileIdxs = fileIdxs;
 	}
 
 	

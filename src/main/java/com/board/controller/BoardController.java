@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.board.constant.Method;
+import com.board.domain.AttachDTO;
 import com.board.domain.BoardDTO;
 import com.board.paging.Criteria;
 import com.board.service.BoardService;
@@ -35,16 +36,19 @@ public class BoardController extends UiUtils {
 				return showMessageWithRedirect("없는 게시글이거나 이미 삭제된 게시글입니다.", "/board/list.do", Method.GET, null, model);
 			}
 			model.addAttribute("board", board); // addAttribute : 이 메서드를 통해 html로 데이터를 전달한다. 인자는 이름,값 형태
+			
+			List<AttachDTO> fileList = boardService.getAttachFileList(idx);
+			model.addAttribute("fileList",fileList);
 		}
 
 		return "board/write";
 	}
 
 	@PostMapping(value = "/board/register.do")
-	public String registerBoard(@ModelAttribute("params") final BoardDTO params, Model model) {
+	public String registerBoard(final BoardDTO params, final MultipartFile[] files, Model model) {
 		Map<String, Object> pagingParams = getPagingParams(params);
 		try {
-			boolean isRegistered = boardService.registerBoard(params);
+			boolean isRegistered = boardService.registerBoard(params, files);
 			if (isRegistered == false) {
 				return showMessageWithRedirect("게시글 등록에 실패하였습니다.", "/board/list.do", Method.GET, pagingParams, model);
 			}
@@ -58,6 +62,9 @@ public class BoardController extends UiUtils {
 		return showMessageWithRedirect("게시글 등록이 완료되었습니다.", "/board/list.do", Method.GET, pagingParams, model);
 	}
 
+	
+	
+	
 	// ModelAttribute를 쓰면 파라미터로 받은 객체를 자동으로 뷰까지 전달 가능.
 	@GetMapping(value = "/board/list.do")
 	public String openBoardList(@ModelAttribute("params") BoardDTO params, Model model) {
