@@ -36,6 +36,13 @@ public class BoardServiceImpl implements BoardService {
 			queryResult = boardMapper.insertBoard(params);
 		} else {
 			queryResult = boardMapper.updateBoard(params);
+			
+			//파일이 추가, 삭제, 변경된 경우
+			if("Y".equals(params.getChangeYn())) {
+				attachMapper.deleteAttach(params.getIdx());
+				
+				//fiileIdxs에 포함된 idx를 가지는 파일의 삭제여부를 'N'으로 업데이트
+			}
 		}
 
 		return (queryResult == 1) ? true : false;

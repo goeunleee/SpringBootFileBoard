@@ -32,7 +32,7 @@ public class BoardDTO extends CommonDTO {
 	/** 비밀 여부 */
 	private String secretYn;
 	/**파일 변경 여부**/
-	private String changeYnString;
+	private String changeYn;
 	/**파일 인덱스 리스트**/
 	private List<Long> fileIdxs;
 
@@ -95,12 +95,12 @@ public class BoardDTO extends CommonDTO {
 		this.secretYn = secretYn;
 	}
 
-	public String getChangeYnString() {
-		return changeYnString;
+	public String getChangeYn() {
+		return changeYn;
 	}
 
-	public void setChangeYnString(String changeYnString) {
-		this.changeYnString = changeYnString;
+	public void setChangeYn(String changeYn) {
+		this.changeYn = changeYn;
 	}
 
 	public List<Long> getFileIdxs() {
