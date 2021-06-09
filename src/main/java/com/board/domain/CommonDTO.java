@@ -1,6 +1,9 @@
 package com.board.domain;
 
+
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.TimeZone;
 
 import com.board.paging.Criteria;
 import com.board.paging.PaginationInfo;
@@ -13,20 +16,15 @@ import com.board.paging.PaginationInfo;
 
 public class CommonDTO extends Criteria {
 
-	/** 페이징 정보 */
 	private PaginationInfo paginationInfo;
 
-	/** 삭제 여부 */
 	private String deleteYn;
 
-	/** 등록일 */
-	private Date insertTime;
+	private LocalDateTime insertTime;
 
-	/** 수정일 */
-	private Date updateTime;
+	private LocalDateTime updateTime;
 
-	/** 삭제일 */
-	private Date deleteTime;
+	private LocalDateTime deleteTime;
 
 	public PaginationInfo getPaginationInfo() {
 		return paginationInfo;
@@ -44,27 +42,27 @@ public class CommonDTO extends Criteria {
 		this.deleteYn = deleteYn;
 	}
 
-	public Date getInsertTime() {
+	public LocalDateTime getInsertTime() {
 		return insertTime;
 	}
 
-	public void setInsertTime(Date insertTime) {
-		this.insertTime = insertTime;
+	public void setInsertTime(LocalDateTime insertTime) {
+	    this.insertTime = insertTime;
 	}
 
-	public Date getUpdateTime() {
+	public LocalDateTime getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(Date updateTime) {
+	public void setUpdateTime(LocalDateTime updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	public Date getDeleteTime() {
+	public LocalDateTime getDeleteTime() {
 		return deleteTime;
 	}
 
-	public void setDeleteTime(Date deleteTime) {
+	public void setDeleteTime(LocalDateTime deleteTime) {
 		this.deleteTime = deleteTime;
 	}
 	

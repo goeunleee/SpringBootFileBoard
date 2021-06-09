@@ -29,19 +29,17 @@ public class BoardServiceImpl implements BoardService {
 	private FileUtils fileUtils;
 
 	@Override
-	public boolean registerBoard(BoardDTO params) {
+	public boolean registerBoard(BoardDTO params) {//파일 포함 x
 		int queryResult = 0;
 
 		if (params.getIdx() == null) {
-			queryResult = boardMapper.insertBoard(params);
+			queryResult = boardMapper.insertBoard(params); //null인 경우 새로운 파일 추가 
 		} else {
-			queryResult = boardMapper.updateBoard(params);
+			queryResult = boardMapper.updateBoard(params); //존재하는 경우 수정 
 			
-			//파일이 추가, 삭제, 변경된 경우
-			if("Y".equals(params.getChangeYn())) {
-				attachMapper.deleteAttach(params.getIdx());
-				
-				//fiileIdxs에 포함된 idx를 가지는 파일의 삭제여부를 'N'으로 업데이트
+			
+			if("Y".equals(params.getChangeYn())) {          //파일이 추가, 삭제, 변경된 경우
+				attachMapper.deleteAttach(params.getIdx());//idx 일치하는 파일의 delete_yn을 y로 변경하는 쿼리 실행
 			}
 		}
 
@@ -49,7 +47,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean registerBoard(BoardDTO params, MultipartFile[] files) {
+	public boolean registerBoard(BoardDTO params, MultipartFile[] files) { //파일 존재하는 경우.. 
 		int queryResult = 1;
 
 		if (registerBoard(params) == false) {
@@ -96,7 +94,7 @@ public class BoardServiceImpl implements BoardService {
 
 		params.setPaginationInfo(paginationInfo);
 
-		if (boardTotalCount > 0) {
+		if (boardTotalCount > 0) { //게시글 1개 이상일 때 게시글 리스트 출력 
 			boardList = boardMapper.selectBoardList(params);
 		}
 
@@ -111,6 +109,12 @@ public class BoardServiceImpl implements BoardService {
 			return Collections.emptyList(); //파일 개수 조회 후, 파일 개수 1개 이상이면 boardidx에 해당하는 파일리스트 리턴 
 		}
 		return attachMapper.selectAttachList(boardIdx);
+	}
+	
+	@Override
+	public AttachDTO getAttachDetail(Long idx) {
+		
+		return attachMapper.selectAttachDetail(idx);
 	}
 
 }

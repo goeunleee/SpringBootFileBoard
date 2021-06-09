@@ -1,3 +1,5 @@
+/**
+
 /* Include variables for LESS */
 /* Import file styles */
 @import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
@@ -34,7 +36,7 @@ body {
   -moz-transform: translate(0, 0);
   -o-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
-  background: #f5f7fa;
+  background: #ebebeb;
   overflow: hidden;
   transition: transform 0.4s ease;
   -webkit-transition: -webkit-transform 0.4s ease;
@@ -71,7 +73,7 @@ a:active,
 a:focus {
   text-decoration: none !important;
   outline: none;
-  color: #304ffe;
+  color: #ff8080;
 }
 input,
 button {
@@ -547,12 +549,12 @@ h4 strong {
   margin-left: 8px;
 }
 .btn-primary {
-  background: #1d84df;
+  background: #616161;
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
-  background: #304ffe !important;
+  background: #616161!important;
 }
 .btn-primary.btn-bordered {
   border-color: #1d84df;
@@ -748,7 +750,7 @@ h4 strong {
   background-color: #ffffff !important;
 }
 .bg-lightdark {
-  background-color: #f4f8fb !important;
+  background-color: rgb(192, 192, 192) !important;
 }
 .bg-violet {
   background-color: #7045ff !important;
@@ -831,7 +833,7 @@ Version 1.0
   z-index: 20;
   right: 0px;
   padding: 0px 20px 0px 20px;
-  background: #1d84df;
+  background: #616161;
   color: #ffffff;
 }
 .fixed-navbar .searchform {
@@ -1175,57 +1177,7 @@ Version 1.0
 }
 /*---------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------
-17. Search Form
-*/
-.searchform {
-  display: inline-block;
-  position: relative;
-  margin-left: 20px;
-  padding: 0px;
-}
-.searchform .input-search {
-  border: none;
-  width: 190px;
-  height: 34px;
-  padding: 7px 40px 7px 20px;
-  font-size: 13px;
-  line-height: 20px;
-  color: #505458;
-  background: #ffffff;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  border: 1px solid #ddd;
-}
-.searchform .input-search::-webkit-input-placeholder {
-  color: #999999;
-}
-.searchform .input-search:-moz-input-placeholder {
-  color: #999999;
-}
-.searchform .input-search::-moz-input-placeholder {
-  color: #999999;
-}
-.searchform .input-search:-ms-input-placeholder {
-  color: #999999;
-}
-.searchform .button-search {
-  position: absolute;
-  top: 0;
-  right: 5px;
-  width: 34px;
-  height: 34px;
-  color: #435966;
-  z-index: 10;
-  background: none;
-  outline: none;
-  border: none;
-}
-@media (min-width: 1025px) {
-  .searchform .button-search:hover {
-    color: #1d84df;
-  }
-}
+
 /*---------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------
 22. Title
@@ -1435,8 +1387,8 @@ textarea.form-control {
 }
 .filebox.bs3-primary .col-sm-10>label {
 	color: #fff;
-	background-color: #337ab7;
-	border-color: #2e6da4;
+	background-color: #616161;
+	border-color: #616161;
 }
 .filebox .col-sm-10>label {
 	display: inline-block;
