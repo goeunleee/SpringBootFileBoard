@@ -29,7 +29,7 @@ public class BoardServiceImpl implements BoardService {
 	private FileUtils fileUtils;
 
 	@Override
-	public boolean registerBoard(BoardDTO params) {//파일 포함 x
+	public boolean registerBoard(BoardDTO params) {//파일 포함 x 게시글 등록, 수정 
 		int queryResult = 0;
 
 		if (params.getIdx() == null) {
@@ -47,7 +47,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean registerBoard(BoardDTO params, MultipartFile[] files) { //파일 존재하는 경우.. 
+	public boolean registerBoard(BoardDTO params, MultipartFile[] files) { //파일 존재하는 경우.. 게시글 등록, 수정
 		int queryResult = 1;
 
 		if (registerBoard(params) == false) {
@@ -66,7 +66,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardDTO getBoardDetail(Long idx) {
+	public BoardDTO getBoardDetail(Long idx) {  //idx 파라미터로 받아와서 게시글 상세 페이지 보여줌 
 		return boardMapper.selectBoardDetail(idx);
 	}
 
@@ -84,7 +84,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDTO> getBoardList(BoardDTO params) {
+	public List<BoardDTO> getBoardList(BoardDTO params) {  //게시글 목록 
 		List<BoardDTO> boardList = Collections.emptyList();
 
 		int boardTotalCount = boardMapper.selectBoardTotalCount(params);
@@ -102,7 +102,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public List<AttachDTO> getAttachFileList(Long boardIdx){
+	public List<AttachDTO> getAttachFileList(Long boardIdx){  //idx 일치하는 게시글의 첨부 파일 리스트 가져옴 
 		
 		int fileTotalCount = attachMapper.selectAttachTotalCount(boardIdx);
 		if (fileTotalCount <1) {

@@ -19,7 +19,7 @@
 			<input type="hidden" th:if="*{idx != null and idx > 0}"
 				th:field="*{idx}" />
 
-			<!-- 파일이 추가 또는 삭제 또는 변경되면 y로 변경-->
+			<!-- 파일이 추가 또는 삭제 또는 변경되면 Y로 변경-->
 			<input type="hidden" th:field="*{changeYn}" value="N" />
 
 			<div class="form-group">
@@ -58,7 +58,7 @@
 
 
 
-			<!-- 저장된 파일 업는 부분~ -->
+			<!-- 저장된 파일 아직 없으면 -->
 			<div th:if="${#lists.isEmpty( fileList )}" data-name="fileDiv"
 				class="form-group filebox bs3-primary">
 				<label for="file_0" class="col-sm-2 control-label">파일1</label>
@@ -80,7 +80,7 @@
 			</div>
 
 
-			<!--저장된 파일 있는 부분-->
+			<!--저장된 파일 1개 이상 추가됐을때-->
 			<!-- unless=else -->
 			<div th:unless="${#lists.isEmpty( fileList )}"
 				th:each="row, status : ${fileList}" data-name="fileDiv"

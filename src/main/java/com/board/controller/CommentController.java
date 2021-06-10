@@ -60,7 +60,7 @@ public class CommentController {
 		
 		return jsonObj;
 	}
-	                          //새로운 댓글 등록,  수정 
+	                          //새로운 댓글 등록,수정 
 	@RequestMapping(value = {"/comments", "/comments/{idx}"}, method= {RequestMethod.POST, RequestMethod.PATCH})
 	public JsonObject registerComment(@PathVariable(value="idx", required=false)Long idx, @RequestBody final CommentDTO params) {
 		JsonObject jsonObj = new JsonObject();
